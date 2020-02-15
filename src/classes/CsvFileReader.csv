@@ -1,7 +1,0 @@
-export class CsvFileReader{
-    fileName: string;
-    data: string[][];
-    read():void{
-
-    }
-}
