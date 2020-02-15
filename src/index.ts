@@ -1,4 +1,6 @@
 import fs from 'fs';
 
-const text = fs.readFileSync('./resources/football.csv');
-console.log(text);
+const matches = fs.readFileSync('./resources/football.csv', {encoding: 'utf-8'}).split('\n').map((record)=>{
+    return record.split(',');
+});
+console.log(matches);
