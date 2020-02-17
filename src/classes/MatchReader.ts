@@ -1,30 +1,31 @@
-import {MatchResult} from '../enums/MatchResult';
-import {datesStringToDate} from '../utils';
+import { MatchResult } from '../enums/MatchResult'
+import { datesStringToDate } from '../utils'
 
-type MatchRow = [Date, string, string, number, number, MatchResult, string];
+type MatchRow = [Date, string, string, number, number, MatchResult, string]
 
 interface DataReader {
-    read(): void;
-    data: string[][];
+    read(): void
+    data: string[][]
 }
 
-export class MatchReader{
+export class MatchReader {
     matches: MatchRow[] = [];
-    constructor(public reader: DataReader) {
-    }
+    constructor(public reader: DataReader) {}
 
-    load(){
+    load() {
         this.reader.read();
-        this.matches = this.reader.data.map((row): MatchRow=>{
-            return [
-                datesStringToDate(row[0]),
-                row[1],
-                row[2],
-                parseInt(row[3]),
-                parseInt(row[4]),
-                row[5] as MatchResult,
-                row[6]
-            ];
-        });
+        this.matches = this.reader.data.map(
+            (row): MatchRow => {
+                return [
+                    datesStringToDate(row[0]),
+                    row[1],
+                    row[2],
+                    parseInt(row[3]),
+                    parseInt(row[4]),
+                    row[5] as MatchResult,
+                    row[6],
+                ]
+            }
+        )
     }
 }
