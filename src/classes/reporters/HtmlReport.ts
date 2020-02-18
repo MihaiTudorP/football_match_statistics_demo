@@ -2,6 +2,8 @@ import { OutputTarget } from '../Summary';
 import { writeFileSync } from 'fs';
 
 export class HtmlReport implements OutputTarget {
+    constructor(public fileName: string) {
+    }
     print(report: string): void {
         const html = `
             <div>
@@ -10,6 +12,6 @@ export class HtmlReport implements OutputTarget {
             </div>    
         `;
 
-        writeFileSync('report.html', html);
+        writeFileSync(this.fileName, html);
     }
 }

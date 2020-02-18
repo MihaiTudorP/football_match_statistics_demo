@@ -13,5 +13,7 @@ const matchReader = new MatchReader(reader);
 matchReader.load();
 const summary = new Summary(new WinsAnalysis('Man United'), new ConsoleReport());
 summary.buildAndPrintReport(matchReader.matches);
-const averages = new Summary(new AverageGoalsAnalysis(), new HtmlReport());
+const averages = new Summary(new AverageGoalsAnalysis(), new HtmlReport('build/averages.html'));
 averages.buildAndPrintReport(matchReader.matches);
+const winsWithHtmlReport = Summary.winsAnalysisWithHtmlreport('Fulham', 'build/wins.html');
+winsWithHtmlReport.buildAndPrintReport(matchReader.matches);
