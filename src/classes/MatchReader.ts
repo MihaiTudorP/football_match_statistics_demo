@@ -1,11 +1,10 @@
-import { MatchResult } from '../enums/MatchResult'
-import { datesStringToDate } from '../utils'
-
-type MatchRow = [Date, string, string, number, number, MatchResult, string]
+import { MatchResult } from '../enums/MatchResult';
+import { datesStringToDate } from '../utils';
+import { MatchRow } from '../MatchRow';
 
 interface DataReader {
-    read(): void
-    data: string[][]
+    read(): void;
+    data: string[][];
 }
 
 export class MatchReader {
@@ -24,8 +23,8 @@ export class MatchReader {
                     parseInt(row[4]),
                     row[5] as MatchResult,
                     row[6],
-                ]
+                ];
             }
-        )
+        );
     }
 }
