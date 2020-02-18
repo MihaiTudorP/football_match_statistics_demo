@@ -11,9 +11,9 @@ export class AverageGoalsAnalysis implements Analyzer {
 
     private static computeAverage(goals: number[]) {
         let sum = 0;
-        for (let i = 0; i < goals.length; i++) {
-            sum += goals[i];
+        for (let goal of goals) {
+            sum = sum + goal;
         }
-        return sum / goals.length;
+        return Math.floor(sum / goals.length);
     }
 }
