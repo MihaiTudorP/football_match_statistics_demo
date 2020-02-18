@@ -1,6 +1,7 @@
 import { MatchResult } from '../enums/MatchResult';
 import { datesStringToDate } from '../utils';
 import { MatchRow } from '../MatchRow';
+import {CsvFileReader} from './CsvFileReader';
 
 interface DataReader {
     read(): void;
@@ -26,5 +27,9 @@ export class MatchReader {
                 ];
             }
         );
+    }
+
+    static fromCsv(fileName: string): MatchReader{
+        return new MatchReader(new CsvFileReader(fileName));
     }
 }
